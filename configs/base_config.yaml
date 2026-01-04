@@ -1,0 +1,35 @@
+# @package _global
+
+# --- Trainer Configuration ---
+trainer:
+  accelerator: auto
+  devices: 1
+  max_epochs: 10
+
+# --- Data Module Configuration ---
+datamodule:
+  batch_size: 128
+  num_workers: 4
+  min_length: 5
+  max_length: 20
+  num_samples: 10000
+
+# --- Model and Optimizer Configurations ---
+model_config:
+  _target_: transformer_basic.models.transformer.Transformer
+  src_vocab_size: -1 # Will be set dynamically from tokenizer
+  tgt_vocab_size: -1 # Will be set dynamically from tokenizer
+  d_model: 128
+  nhead: 8
+  num_encoder_layers: 3
+  num_decoder_layers: 3
+  dim_feedforward: 512
+  dropout: 0.1
+
+optimizer_config:
+  _target_: torch.optim.Adam
+  lr: 0.001
+  weight_decay: 0.0
+
+# --- Tokenizer Path ---
+tokenizer_path: "data/tokenizer.json"

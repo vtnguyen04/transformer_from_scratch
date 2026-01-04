@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "transformer_basic"
+version = "0.0.1"
+authors = [
+  { name="Vo Thanh Nguyen", email="thcs2nguyen@gmail.com" },
+]
+description = "A basic Transformer implementation using PyTorch Lightning."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "pytorch-lightning>=2.0.0",
+    "torchdata>=0.6.0",
+    "pyyaml",
+    "jsonargparse[signatures]",
+    "lightning>=2.3.3",
+    "rich>=14.2.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/vtnguyen04/transformer_from_scratch"
+"Bug Tracker" = "https://github.com/vtnguyen04/transformer_from_scratch/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
